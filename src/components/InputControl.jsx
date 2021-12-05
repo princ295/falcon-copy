@@ -7,7 +7,7 @@ import { useFieldArray, useFormContext } from "react-hook-form";
 import { GrRefresh } from "react-icons/gr";
 import { IconButton } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import { captchaImg } from "../static/index";
+
 
 import axios from 'axios';
 
@@ -57,6 +57,7 @@ export function SelectControl(
     name, 
     defaultOption, 
     disable,
+    _value="",
     changeEvent=()=>{},
     ...rest }) {
   
@@ -77,7 +78,7 @@ export function SelectControl(
           {...rest} 
           disabled={disable ? true : false} 
         >
-          <option value="">{defaultOption}</option>
+          <option value={_value}>{defaultOption}</option>
           {
             options.map(value => (
               <option key={value} value={value.ddlId}>

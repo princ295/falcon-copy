@@ -5,32 +5,33 @@ const base_url = process.env.REACT_APP_ENDPOINT;
 export const GlobalApi = {
 
   async getState() {
-    const { data } = await axios.get(base_url+``);
+    alert('Api Hit')
+    const { data } = await axios.get(base_url+`common/state`);
     return data;
   },
 
-  async getDistrict() {
-    const { data } = await axios.get(base_url+``);
+  async getDistrict(district) {
+    const { data } = await axios.get(base_url+`common/district/`+ district);
     return data;
   },
 
-  async getOffice() {
-    const { data } = await axios.get(base_url+``);
+  async getOffice({state, district}) {
+    const { data } = await axios.get(base_url+"common/officelistddl/" + state + "/" + district,);
     return data;
   },
 
   async getModule() {
-    const { data } = await axios.get(base_url+``);
+    const { data } = await axios.get(base_url+`common/getmodulelist`);
     return data;
   },
 
   async getStage() {
-    const { data } = await axios.get(base_url+``);
+    const { data } = await axios.get(base_url+`common/getstagelist`);
     return data;
   },
 
   async getStatus() {
-    const { data } = await axios.get(base_url+``);
+    const { data } = await axios.get(base_url+`common/CommonList/action_status`);
     return data;
   },
 

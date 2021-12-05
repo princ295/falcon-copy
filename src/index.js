@@ -10,18 +10,17 @@ import theme from './theme';
 // import { store } from './store/store';
 
 import "./styles/styles.scss";
+import { store } from './store/store';
 
 ReactDOM.render(
   
-  // <Provider store={store}>
-  //   <I18nextProvider i18n={i18next}>
+  <Provider store={store}>
    <ThemeProvider theme={theme}>
       <Router>
         <App />
       </Router>
       </ThemeProvider>
-   // {/* </I18nextProvider>
- // </Provider> */}
+  </Provider>
   ,
   document.getElementById('root')
 );

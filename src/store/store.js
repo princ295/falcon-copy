@@ -4,7 +4,8 @@ import { rootReducer } from "./rootReducer";
 import createSagaMiddleware from "redux-saga";
 
 import { createStore, compose, applyMiddleware } from "redux";
-import rootSaga from "./saga";
+import rootSaga from "./sagas";
+// import rootSaga from "./saga";
 
 // export const store = createStore(rootReducer);
 const composeEnhancers =

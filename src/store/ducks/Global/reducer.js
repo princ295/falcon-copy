@@ -1,8 +1,8 @@
 // action type
 import { produce } from "immer";
-import { NotificationStatus } from "../../types";
-import { GlobalStateActionType } from "./actionCreator";
-import { NotificationActionsType } from "./contracts/actionType";
+
+import { GlobalStateActionType } from "./contracts/actionType";
+
 
 export const ChangeLanguageActionType = {
   SET_LANGUAGE: 'SET_LANGUAGE'
@@ -15,6 +15,7 @@ export const ChangeModalActionType = {
 
 const initialGlobalState = {
   modal: undefined,
+  data: undefined,
   state_name: [],
   district_name: [],
   office: [],
@@ -22,11 +23,11 @@ const initialGlobalState = {
   stage: [],
   status: [],
   officer_stage: [],
-  notification: {
-    visible: false,
-    text: undefined,
-    type: NotificationStatus.NEVER
-  },
+  // notification: {
+  //   visible: false,
+  //   text: undefined,
+  //   type: NotificationStatus.NEVER
+  // },
 }
 
 export const globalReducer = produce((draft, action) => {

@@ -1,4 +1,4 @@
-import React, { Children, useState } from "react";
+import React, { Children, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Divider from "@material-ui/core/Divider";
@@ -14,6 +14,8 @@ import DrawerItems from "./components/DrawerItems";
 import TopHeader from "./components/TopHeader";
 import CardBlock from "../components/CardBlock";
 import CreateModule from "./workflow/CreateModule";
+import { useDispatch } from "react-redux";
+import { fethStateData } from "../store/ducks/Global/actionCreator";
 
 const drawerWidth = 240;
 
@@ -100,8 +102,9 @@ const DashboardLayout = (props) => {
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const [listIndex, setIndex] = React.useState();
 
+  const dispatch = useDispatch();
+ 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -111,11 +114,8 @@ const DashboardLayout = (props) => {
   return (
     <div className={classes.root}>
       <CssBaseline />
-
       <TopHeader handleDrawerToggle={handleDrawerToggle} title={props.title} />
-
       <nav className={classes.drawer} aria-label="mailbox folders">
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Hidden smUp implementation="css">
           <Drawer
             container={container}
@@ -147,8 +147,7 @@ const DashboardLayout = (props) => {
       </nav>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-          {/* {props.children} */}
-          <CreateModule />
+          {props.children}
       </main>
     </div>
   );

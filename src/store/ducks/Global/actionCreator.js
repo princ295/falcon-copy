@@ -1,5 +1,11 @@
 import { GlobalStateActionType } from "./contracts/actionType";
 
+export const fethStateData = (payload) => ({
+  type: GlobalStateActionType.FETCH_STATE
+})
+
+
+
 export const setState = (payload) => ({
   type: GlobalStateActionType.SET_STATE,
   payload
